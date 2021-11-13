@@ -118,16 +118,6 @@ void hard_cnn(hls::stream<AXIS_wLAST>& S_AXIS, hls::stream<AXIS_wLAST>& M_AXIS){
 				if (output_layer[i] > output_layer[max]) {
 					max = i;
 				}
-				//DTYPE prob = 100*(DTYPE(exp(output_layer[max]))/(DTYPE)exp_sum);
-				//int prob_int =  (int)(prob);
-				//out.data = prob_int;
-				//M_AXIS.write(out);
-				//out.data =DTYPE(max + 1) + prob;
-				/*out.data = output_layer[i];
-				if (i == NUM_OUTPUT - 1) {
-					out.last = true;
-				}
-				M_AXIS.write(out);*/
 				if (i == NUM_OUTPUT - 1) {
 					out.data = max;
 					M_AXIS.write(out);
